@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RUBY <3</title>
+  <link rel="icon" type="image/png" href="https://w7.pngwing.com/pngs/184/451/png-transparent-pixel-heart-thumbnail.png">
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40 px 20px;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+    #timer {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+    .message {
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #ff4d6d;
+    }
+    h2 {
+      margin-top: 30px;
+      font-size: 1.2em;
+      color: #fff
+    }
+  </style>
+</head>
+<body>
+  <h1>Hemos estado juntos durante:</h1>
+  <div id="timer">Cargando...</div>
+  <h2>Te amo Ruby <3</h2>
+  <div class="message">Siempre estaré aquí para tí :3</div>
+
+  <script>
+    const startDate = new Date('2022-04-29T00:00:00');
+
+    function updateTimer() {
+      const now = new Date();
+      let diff = now - startDate;
+
+      const seconds = Math.floor(diff / 1000) % 60;
+      const minutes = Math.floor(diff / (1000 * 60)) % 60;
+      const hours = Math.floor(diff / (1000 * 60 * 60)) % 24;
+      const daysTotal = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const years = Math.floor(daysTotal / 365.25);
+      const days = Math.floor(daysTotal % 365.25);
+
+      document.getElementById('timer').textContent =
+        `${years} años, ${days} días, ${hours} horas, ${minutes} minutos y ${seconds} segundos`;
+    }
+
+    setInterval(updateTimer, 1000);
+    updateTimer();
+  </script>
+</body>
+</html>
